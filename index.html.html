@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cervejaria56 — Hamburgueria & Cervejaria</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <h1 class="logo">Cervejaria56</h1>
+    <nav class="nav">
+      <a href="#sobre">Sobre</a>
+      <a href="#menu">Menu</a>
+      <a href="#espaco">Espaço</a>
+      <a href="#contactos">Contactos</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h2>Hambúrgueres Artesanais & Cerveja Gelada</h2>
+    <p>Street food moderna no coração de Fafe</p>
+  </div>
+</section>
+
+<main>
+
+<!-- SOBRE -->
+<section id="sobre" class="section bg-light">
+  <div class="section-container">
+    <h2>Sobre Nós</h2>
+    <p>
+      A Cervejaria56 nasceu da paixão pelos hambúrgueres artesanais e pela boa cerveja.
+      Um espaço moderno e descontraído para amigos, famílias e amantes de street food.
+    </p>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="section bg-light">
+  <div class="section-container">
+    <h2>Menu</h2>
+
+    <!-- FILTROS -->
+    <div class="menu-filters">
+      <button class="filter-btn active" data-category="entradas">Entradas</button>
+      <button class="filter-btn" data-category="burgers">Hambúrgueres</button>
+      <button class="filter-btn" data-category="snacks">Snacks</button>
+      <button class="filter-btn" data-category="sobremesas">Sobremesas</button>
+    </div>
+
+    <!-- GRID DE ITENS -->
+    <div class="menu-grid-modern">
+
+      <div class="menu-item entradas">
+        <img src="img/pao-alho.jpg" alt="Pão de Alho">
+        <h4>Pão de Alho</h4>
+        <p>3,00€</p>
+      </div>
+
+      <div class="menu-item burgers hidden">
+        <img src="img/samurai.jpg" alt="Samurai">
+        <h4>Samurai</h4>
+        <p>6,00€</p>
+      </div>
+
+      <div class="menu-item burgers hidden">
+        <img src="img/56.jpg" alt="Hambúrguer 56">
+        <h4>Hambúrguer 56</h4>
+        <p>6,00€</p>
+      </div>
+
+      <div class="menu-item snacks hidden">
+        <img src="img/kebab.jpg" alt="Kebab no Pão">
+        <h4>Kebab no Pão</h4>
+        <p>7,00€</p>
+      </div>
+
+      <div class="menu-item sobremesas hidden">
+        <img src="img/doce.jpg" alt="Doce da Casa">
+        <h4>Doce da Casa</h4>
+        <p>3,50€</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ESPAÇO -->
+<section id="espaco" class="section bg-light">
+  <div class="section-container">
+    <h2>O Nosso Espaço</h2>
+    <p>
+      Um ambiente urbano, confortável e moderno, ideal para convívios, aniversários e jantares de grupo.
+    </p>
+  </div>
+</section>
+
+<!-- CONTACTOS -->
+<section id="contactos" class="section bg-dark">
+  <div class="section-container">
+    <h2>Contactos</h2>
+    <p><strong>Telefone:</strong> 253 000 000</p>
+    <p><strong>Email:</strong> geral@cervejaria56.pt</p>
+    <a href="tel:253000000" class="btn">Reservar Mesa</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 Cervejaria56 — Todos os direitos reservados</p>
+</footer>
+
+<!-- JS FILTROS -->
+<script>
+const buttons = document.querySelectorAll(".filter-btn");
+const items = document.querySelectorAll(".menu-item");
+
+// Inicial: mostrar apenas categoria ativa
+items.forEach(item => {
+  if(!item.classList.contains("entradas")) item.classList.add("hidden");
+});
+
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelector(".filter-btn.active").classList.remove("active");
+    button.classList.add("active");
+
+    const category = button.getAttribute("data-category");
+
+    items.forEach(item => {
+      if(item.classList.contains(category)) {
+        item.classList.remove("hidden");
+      } else {
+        item.classList.add("hidden");
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>

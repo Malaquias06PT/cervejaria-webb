@@ -1,0 +1,235 @@
+/* ================= ROOT ================= */
+:root {
+  --primary: #1c1c1c;
+  --accent: #e67e22;
+  --light-bg: #fdf6f0;
+  --dark-bg: #2c2c2c;
+  --text-dark: #333;
+  --text-light: #fff;
+  --gold: #f1c40f;
+  --transition-speed: 0.4s;
+}
+
+/* ================= GLOBAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--light-bg);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* ================= HEADER ================= */
+.header {
+  background: var(--primary);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: var(--gold);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.nav {
+  display: flex;
+  gap: 25px;
+}
+
+.nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition-speed);
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+/* ================= HERO ================= */
+.hero {
+  height: 75vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)),
+    url("../img/login.png") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-content h2 {
+  font-size: 3rem;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+/* ================= SECTIONS ================= */
+.section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: auto;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.bg-light {
+  background: var(--light-bg);
+  color: var(--text-dark);
+}
+
+.bg-dark {
+  background: var(--dark-bg);
+  color: var(--text-light);
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: var(--primary);
+  position: relative;
+}
+
+.section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--accent);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ================= MENU FILTROS ================= */
+.menu-filters {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 40px 0 20px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 10px 22px;
+  border: none;
+  background: #ddd;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition-speed);
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: var(--accent);
+  color: var(--text-light);
+}
+
+/* ================= MENU GRID ================= */
+.menu-grid-modern {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.menu-item {
+  background: var(--light-bg);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed), opacity 0.3s ease;
+  text-align: center;
+}
+
+.menu-item.hidden {
+  display: none;
+  opacity: 0;
+}
+
+.menu-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.menu-item h4 {
+  margin: 15px 0 5px;
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+.menu-item p {
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.menu-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* ================= BOTÃO ================= */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 32px;
+  background: var(--accent);
+  color: var(--text-light);
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform var(--transition-speed), background var(--transition-speed);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  background: #d35400;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background: var(--primary);
+  color: #ccc;
+  text-align: center;
+  padding: 25px;
+  margin-top: 50px;
+}
+
+/* ================= RESPONSIVO ================= */
+@media(max-width:900px){
+  .nav { display:none; }
+  .hero-content h2 { font-size:2rem; }
+}
+
+@media(max-width:600px){
+  .menu-grid-modern { grid-template-columns: 1fr; }
+  .hero-content h2 { font-size:1.6rem; }
+}
